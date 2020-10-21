@@ -4,6 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 
+/*
+ * Class Name :
+ *   DateVisual
+ */
+/*
+ * Class Description :
+ *   This class store the json data from files and saves them as objects in two arrays. 
+ *   An nested class (Window_Graph) handles the two arrays generate before, and draws the
+ *   data in the user interface. 
+ */
 public class DateVisual : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -21,6 +31,10 @@ public class DateVisual : MonoBehaviour
       
     }
 
+
+    /*
+     * nested class
+     */
  
 public class Window_Graph : MonoBehaviour
 {
@@ -37,9 +51,11 @@ public class Window_Graph : MonoBehaviour
         showGraph(valueList);
 
     }
-    //有关于宽度的比例尺。找列数
+    //The scale about the width.
+    
+    //The scale about the deepth.
 
-    //深度的比例尺
+    //Function Description: Create the node
     private GameObject CreatDot(Vector2 anchoredPosition)
     {
         GameObject gameObject = new GameObject("dot", typeof(Image));
@@ -52,13 +68,17 @@ public class Window_Graph : MonoBehaviour
         rectTransform.anchorMin = new Vector2(0, 0);
         return gameObject;
     }
+
+
+    //show the graph
     private void showGraph(List<int> valueList)
     {
         float graphWidth = graphContainer.sizeDelta.x;
         float xSize = graphWidth / (valueList.Count + 1);
         float yMaxinum = 100f;
         float graphHeight = graphContainer.sizeDelta.y;
-
+        
+        //put the node to a position
         GameObject lastDotGameObject = null;
         for (int i = 0; i < valueList.Count; i++)
         {
@@ -96,6 +116,8 @@ public class Window_Graph : MonoBehaviour
 
 
     }
+
+    //create the connection that connect two nodes
     private void CreateDotConnection(Vector2 dotPositionA, Vector2 dotPositionB)
     {
         GameObject gameObject = new GameObject("dotConnection", typeof(Image));
@@ -124,6 +146,8 @@ public class Window_Graph : MonoBehaviour
         }
         rectTransform.localEulerAngles = new Vector3(0, 0, angle);
     }
+
+    //Create the bar
     private GameObject CreatBar(Vector2 graphPosition, float barWidth)
     {
         GameObject gameObject = new GameObject("bar", typeof(Image));

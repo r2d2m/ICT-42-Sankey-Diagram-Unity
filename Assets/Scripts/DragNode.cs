@@ -3,24 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
+
+/*
+ * Class Name :
+ *   DragNode
+ */
+/*
+ * Class Description :
+ *   This class implements IDragHandler interface to obtain the function of monitoring
+ *   the coordinates before and after the mouse drag. The position of the dragged node
+ *   will be changed in the data storage by the methods in this class. The update method
+ *   in the NodeShow class will continuously update the display of the nodebased on the 
+ *   current data storage.
+ */
 public class DragNode : MonoBehaviour, IDragHandler
 {
+    //initialize the attribution of this class
     [SerializeField] RectTransform drag;
     public NodesStructure a;
     public float nodewidth;
      public float nodeheight;
     private GameObject nodeshow;
+
+    //set the node
     public void setRectTransform(RectTransform rectTransform,GameObject nodeshow)
     {
         drag = rectTransform;
         this.nodeshow = nodeshow;
     }
+
+    //set the width, and hight of the node
     public void setNodeStructure(NodesStructure node, float width, float hight)
     {
         a = node;
         nodewidth = width;
         nodeheight = hight;
     }
+
+    //handle the process of drag node
+    //showing drag the node
     public void OnDrag(PointerEventData eventData)
     {
 

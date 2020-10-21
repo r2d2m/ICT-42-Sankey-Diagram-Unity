@@ -5,9 +5,15 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 /*
- * Button_UI class: this class set the button in the User interface, 
- *                  and set functions of button.
-* Button in the UI
+ * Class Name : 
+ *   Button_UI
+/*
+ * Class Description :
+ *   This class has multiple attributes for monitoring mouse operations which is type of
+ * Action. They can call corresponding methods. At current stage, only implement methods
+ * to meet the functional requirements of hover on are expanded. More mouse action 
+ * attributes are set for scalability of the software, and this category can be expanded
+ * when there is more need to monitor mouse actions in the future. 
 * */
 public class Button_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler 
 {

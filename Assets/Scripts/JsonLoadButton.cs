@@ -4,6 +4,14 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+/*
+ * Class Name :
+ *   JsonLoadButton
+ */
+/*
+ * Class Description : 
+ *   The class set the operation of JsonLoadButton
+ */
 public class JsonLoadButton : MonoBehaviour
 {
     // Start is called before the first frame update

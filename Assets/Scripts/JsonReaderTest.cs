@@ -14,6 +14,15 @@ using UnityEditorInternal;
 using UnityEngine.SocialPlatforms.GameCenter;
 using UnityEngine.Windows;
 
+/*
+ * Class Name : NodeItem
+ */
+
+/*
+ * Class Description : 
+ *   Get the information of node from the Json file.
+ *   include the name, x0, x1, y0, y1, index, depth, height, layer, value
+ */
 public class NodesItem
     {
         /// <summary>
@@ -43,6 +52,7 @@ public class NodesStructure
     }
     public List<LinksStructure> TargetLinks { get; set; }
 
+    //toString : form the information of node to a formed string
     public void tostring()
     {
         
@@ -495,7 +505,7 @@ public class JsonReaderTest : MonoBehaviour
 
 
 
-
+    //the layout
     public void ComputeNodeDepths()
     {
         List<NodesStructure> current = new List<NodesStructure>(NodesStructures);

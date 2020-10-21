@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-//简单来说,贝塞尔曲线就是对多个线段同时做差值
+/*
+ * Class Name : 
+ *   DrawLine
+ */
+/*
+ * Class Description : 
+ *   This class mainly draw the Bezier curve.  
+ */
+//Simply put, a Bezier curve is one that differentiates multiple segments at once.
 public class DrawLine : MonoBehaviour
 {
 
+    //Initialize the attribution
     public LineRenderer lineReaderer;
     public GameObject a;
     private RectTransform graphContainer;
@@ -16,6 +24,7 @@ public class DrawLine : MonoBehaviour
     private Vector2[] positions = new Vector2[201];
     private int curveCount = 1;
 
+    //Call this function when start
     [System.Obsolete]
     void Start()
     {
@@ -53,6 +62,7 @@ public class DrawLine : MonoBehaviour
        
     }
 
+    //draw the curve
     [System.Obsolete]
     private void DrawLinearCurve(Vector2 position1,Vector2 position2,Vector2 position3,Vector2 position4,float width)
     {
@@ -80,6 +90,8 @@ public class DrawLine : MonoBehaviour
        
         
     }
+
+    //Create the connection between two nodes
     private void CreateDotConnection(Vector2 dotPositionA, Vector2 dotPositionB,float width)
     {
         GameObject gameObject = new GameObject("dotConnection", typeof(Image));
@@ -108,6 +120,7 @@ public class DrawLine : MonoBehaviour
         }
         rectTransform.localEulerAngles = new Vector3(0, 0, angle);
     }
+
     private Vector3 CalculateLinearBezierPoint(float t,Vector2 p0,Vector2 p1,Vector2 p2,Vector2 p3)
     {
         float u = 1 - t;
